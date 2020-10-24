@@ -28,8 +28,8 @@ int print_s(va_list l)
 	int c;
 
 	if (str)
-		c = print(str);
+		c = _print(str);
 	else
-		c = print("(nil)");
+		c = _print("(nil)");
 	return (c);
 }
