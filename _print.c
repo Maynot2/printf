@@ -10,12 +10,12 @@
 
 int _print(char *s)
 {
-	i = 0;
+	int i = 0;
 
 	while(s[i])
 	{
 		_putchar(s[i]);
-		i++
+		i++;
 	}
 
 	return i;

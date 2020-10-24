@@ -10,7 +10,7 @@ typedef struct format_specifier
 } fs_t;
 
 int _putchar(char);
-int print(char);
+int _print(char *);
 int print_c(va_list);
 int print_s(va_list);
 int _printf(const char *, ...);
