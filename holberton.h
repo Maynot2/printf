@@ -3,6 +3,14 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
+/**
+ * struct format_specifier - Specifie the format
+ * @fs: the format specifier
+ * @f: the function for it
+ *
+ * Description: Structure that find which format is the input.
+ */
+
 typedef struct format_specifier
 {
 	char fs;

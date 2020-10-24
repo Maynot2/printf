@@ -20,7 +20,7 @@ int print_num(int n, int c)
 
 	if (n1 / 10)
 	{
-		return print_num(n1 / 10, c + 1);
+		 print_num(n1 / 10, c + 1);
 	}
 	_putchar(n1 % 10 + '0');
 }
