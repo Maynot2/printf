@@ -18,6 +18,8 @@ int _printf(const char *format, ...)
 	fs_t s_to_p[] = {
 		{'c', print_c},
 		{'s', print_s},
+		{'i', print_d_i},
+		{'d', print_d_i},
 		{'\0', NULL}
 	};
 

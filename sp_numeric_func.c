@@ -1,5 +1,16 @@
 #include "holberton.h"
 
+int _pow(int n, int exp)            
+{
+	int total = 1;
+	int i;
+
+	for (i = 0; i < exp; i++)
+		total *= n;
+
+	return (total); 
+}
+
 /**
  * print_number - Print a number n1
  * @n: An integer
@@ -8,23 +19,12 @@
  *
  */
 
-int print_num(int n, int c)
+int numlen(int n)
 {
-	unsigned int n1 = n;
-
-	if (n < 0)
-	{
-		_putchar('-');
-		n1 = -n;
-	}
-
-	if (n1 / 10)
-	{
-		return print_num(n1 / 10, c + 1);
-	}
-	_putchar(n1 % 10 + '0');
+	if (n / 10 == 0)
+		return (1);
+	return (1 + numlen(n / 10));
 }
-
 
 /**
  * print_d_i - Print a decimal
@@ -35,8 +35,24 @@ int print_num(int n, int c)
 
 int print_d_i(va_list l)
 {
-	int num = va_arg(l, int);
-	int c = 0;
+	int n = va_arg(l, int);
+	unsigned int num = n;
+	int i;
 
-	return (print_num(num, c));
+	if (n < 0)
+	{
+		_putchar('-');
+		num = -n;
+
+	}
+
+
+	for (i = numlen(num) - 1; i > 0; i--)
+	{
+		_putchar((num / _pow(10, i)) + '0');
+		num -=  (num / _pow(10, i)) * _pow(10, i);
+	}
+	_putchar(num % 10 + '0');
+
+	return (numlen(num));
 }
