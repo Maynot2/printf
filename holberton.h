@@ -10,6 +10,9 @@ typedef struct format_specifier
 } fs_t;
 
 int _putchar(char);
-int _printf(const char *format, ...);
+int print(char);
+int print_c(va_list);
+int print_s(va_list);
+int _printf(const char *, ...);
 
 #endif
