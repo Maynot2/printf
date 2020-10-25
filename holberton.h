@@ -15,14 +15,14 @@
 typedef struct format_specifier
 {
 	char fs;
-	int (*f)(va_list);
+	int (*f)(va_list, char *, int);
 } fs_t;
 
 int _putchar(char);
 int _print(char *);
 int _printf(const char *, ...);
-int print_c(va_list);
-int print_s(va_list);
-int print_d_i(va_list);
+int add_c(va_list, char *, int);
+int add_s(va_list, char *, int);
+int add_d_i(va_list, char *, int);
 
 #endif
