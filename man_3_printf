@@ -1,0 +1,41 @@
+.TH man 1 "PF" "25 Oct 2020" "Printf man page"
+.SH NAME
+Printf \- Display inputs with formatted output conversion
+.SH SYNOPSIS
+int _printf(const char *format, ...)
+.SH DESCRIPTION
+The function _printf() produce output according to a format. It writes output to stdout, the standard output stream. It's an implementation of the printf() function with some differences. 
+.PP
+\f[B]Return Value\f[R]
+.PP
+The function returns the number of characters printed (excluding the null byte used to end output to strings).
+.SH OPTIONS
+\f[B]%c\f[R] - Prints a character
+.nf
+\f[B]%s\f[R] - Prints a string
+.nf
+\f[B]%d\f[R] - Prints a decimal
+.nf
+\f[B]%i\f[R] - Print an integer
+.nf
+\f[B]%b\f[R] - The unsigned int argument is converted to binary
+.nf
+\f[B]%u\f[R] - Print the unsigned number
+.nf
+\f[B]%o\f[R] -
+.nf
+\f[B]%x\f[R] -
+.nf
+\f[B]%X\f[R] -
+.nf
+\f[B]%p\f[R] -
+.SH EXAMPLE
+_printf("Character:[%c]\n", 'H');
+.nf
+_printf("String:[%s]\n", "I am a string !");
+.nf
+_printf("Length:[%d, %i]\n", 28, 28);
+.SH AUTHOR
+Aurelie Cedia & Paul Manot
+.SH SEE ALSO
+printf(), scanf()
