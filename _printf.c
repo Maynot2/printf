@@ -14,40 +14,42 @@ int _printf(const char *format, ...)
 {
 	int i, j;
 	int cc = 0;
+	char buff[1024] = {0};
 	va_list list;
 	fs_t s_to_p[] = {
-		{'c', print_c},
-		{'s', print_s},
-		{'i', print_d_i},
-		{'d', print_d_i},
+		{'c', add_c},
+		{'s', add_s},
+		{'i', add_d_i},
+		{'d', add_d_i},
 		{'\0', NULL}
 	};
 
 	va_start(list, format);
 
 	i = 0;
-	while (format[i])
+	while (format && format[i])
 	{
 		if (format[i] == '%')
 		{
+			i++;
 			j = 0;
 			while (s_to_p[j].fs)
 			{
-				if (format[i + 1] == s_to_p[j].fs)
-					cc += s_to_p[j].f(list);
+				if (format[i] == s_to_p[j].fs)
+					cc += s_to_p[j].f(list, buff, cc);
 				j++;
 			}
-			i++;
 		}
 		else
 		{
-			_putchar(format[i]);
+			buff[cc] = format[i];
 			cc++;
 		}
 		i++;
 	}
-
 	va_end(list);
+
+	write(1, &buff, cc);
 
 	return (cc);
 }
