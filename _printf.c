@@ -14,7 +14,7 @@
 int _printf(const char *format, ...)
 {
 	int i, j;
-	int cc = 0;
+	int cc;
 	char buff[1024] = {0};
 	va_list list;
 	fs_t s_to_p[] = {
@@ -24,9 +24,10 @@ int _printf(const char *format, ...)
 		{'d', add_d_i},
 		{'\0', NULL}
 	};
-
+	if (!format || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+	cc = 0;
 	va_start(list, format);
-
 	i = 0;
 	while (format && format[i])
 	{
@@ -49,8 +50,6 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	va_end(list);
-
 	write(1, &buff, cc);
-
 	return (cc);
 }
