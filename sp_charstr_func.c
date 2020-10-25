@@ -8,9 +8,12 @@
  *
  */
 
-int print_c(va_list l)
+int add_c(va_list l, char *buffer, int i)
 {
-	_putchar(va_arg(l, int));
+	char c = va_arg(l, int);
+
+	buffer[i] = c;
+
 	return (1);
 }
 
@@ -22,14 +25,20 @@ int print_c(va_list l)
  *
  */
 
-int print_s(va_list l)
+int add_s(va_list l, char *buffer, int i)
 {
 	char *str = va_arg(l, char *);
-	int c;
+	int j;
 
-	if (str)
-		c = _print(str);
-	else
-		c = _print("(nil)");
-	return (c);
+	if (!str)
+		str = "(nil)";
+
+	j = 0;
+	while(str[j])
+	{
+		printf("j: %d\n", j);
+		buffer[i + j] = str[j];
+		j++;
+	}
+	return (j);
 }
