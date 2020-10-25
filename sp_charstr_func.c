@@ -1,10 +1,12 @@
 #include "holberton.h"
 
 /**
- * print_c - Prints a character.
- * @l: A list of elements.
+ * add_c - Prints a character.
+ * @l: A list of elements.*
+ * @buffer: A string buffer.
+ * @i: The current position in the buffer.
  *
- * Return: Nothing.
+ * Return: 1 as per one character added.
  *
  */
 
@@ -18,10 +20,12 @@ int add_c(va_list l, char *buffer, int i)
 }
 
 /**
- * print_s - Prints a string.
+ * add_s - Add a string to a given buffer.
  * @l: A list of elements.
+ * @buffer: A string buffer.
+ * @i: The current position in the buffer.
  *
- * Return: Nothing.
+ * Return: The number of characters added.
  *
  */
 
@@ -34,9 +38,8 @@ int add_s(va_list l, char *buffer, int i)
 		str = "(nil)";
 
 	j = 0;
-	while(str[j])
+	while (str[j])
 	{
-		printf("j: %d\n", j);
 		buffer[i + j] = str[j];
 		j++;
 	}
