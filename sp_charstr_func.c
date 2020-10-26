@@ -45,3 +45,18 @@ int add_s(va_list l, char *buffer, int i)
 	}
 	return (j);
 }
+/**
+ * add_percent - Add a percent
+ *
+ *
+ *
+ *
+ */
+
+int add_percent(va_list l, char *buffer, int i)
+{
+	(void)l;
+
+	buffer[i] = '%';
+	return (1);
+}
