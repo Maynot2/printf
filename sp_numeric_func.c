@@ -1,41 +1,6 @@
 #include "holberton.h"
 
 /**
-  * numlen - Gives the number of digits in a number.
-  * @n: A number as an integer.
-  *
-  * Return: The number of digit as an integer.
-  *
-  */
-
-int numlen(int n)
-{
-	if (n / 10 == 0)
-		return (1);
-	return (1 + numlen(n / 10));
-}
-
-/**
-  * _pow - Computes the power of a number n to exp.
-  * @n: A number as an integer.
-  * @exp: The exponential as an integer.
-  *
-  * Return: The power of a number as an integer.
-  *
-  */
-
-int _pow(int n, int  exp)
-{
-	double total = 1;
-	double i;
-
-	for (i = 0; i < exp; i++)
-		total *= n;
-
-	return (total);
-}
-
-/**
  * add_d_i - Add a decimal char to a buffer.
  * @l: A list of elements.
  * @buffer: A string buffer.
@@ -57,7 +22,6 @@ int add_d_i(va_list l, char *buffer, int i)
 		i++;
 	}
 
-
 	for (j = 0; j < numlen(n); j++)
 	{
 		buffer[i + j] = (num / _pow(10, numlen(num) - 1)) + '0';
@@ -65,4 +29,40 @@ int add_d_i(va_list l, char *buffer, int i)
 	}
 
 	return (n < 0 ? numlen(n) + 1 : numlen(n));
+}
+
+int div_by_two_times(int n, int c)
+{
+
+	if (n !=  0)
+	{
+		printf("n : %d\n", n);
+		return (div_by_two_times(n / 2, c + 1));
+	}
+	return (c);
+}
+
+int add_binary(va_list l, char *buffer, int i)
+{
+	unsigned int num = va_arg(l, int);
+	int j = div_by_two_times(num, 0) - 1;
+
+	while (j >= 0)
+	{
+		if (num % 2 == 0)
+		{
+			printf("in \n");
+			printf("i %d, j %d\n", i, j);
+			buffer[i + j] = '0';
+			printf("%c\n",  buffer[i + j]);
+		}
+		else
+		{
+			buffer[i + j] = '1';
+		}
+		num /= 2;
+		j--;
+	}
+
+	return (div_by_two_times(num, 0));
 }

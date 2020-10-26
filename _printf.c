@@ -23,6 +23,7 @@ int _printf(const char *format, ...)
 		{'i', add_d_i},
 		{'d', add_d_i},
 		{'%', add_percent},
+		{'b', add_binary},
 		{'\0', NULL}
 	};
 	if (!format || (format[0] == '%' && format[1] == '\0'))
