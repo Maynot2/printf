@@ -19,6 +19,8 @@ typedef struct format_specifier
 } fs_t;
 
 int _putchar(char);
+int numlen(int);
+int _pow(int, int);
 int _print(char *);
 int _printf(const char *, ...);
 int add_c(va_list, char *, int);
