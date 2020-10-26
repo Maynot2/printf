@@ -59,9 +59,16 @@ int count_div_by(int n, int div, int c)
 int add_binary(va_list l, char *buffer, int i)
 {
 	unsigned int num = va_arg(l, unsigned int);
-	int cc = 0;
-	int j = count_div_by(num, 2, 0) - 1;
+	int cc;
+	int j;
 
+	if (num == 0)
+	{
+		buffer[i] = '0';
+		return (1);
+	}
+	cc = 0;
+	j = count_div_by(num, 2, 0) - 1;
 	while (j >= 0)
 	{
 		if (num % 2 == 0)
@@ -73,9 +80,8 @@ int add_binary(va_list l, char *buffer, int i)
 			buffer[i + j] = '1';
 		}
 		num /= 2;
-		j--;
 		cc++;
+		j--;
 	}
-
 	return (cc);
 }
