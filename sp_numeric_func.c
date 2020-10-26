@@ -31,30 +31,25 @@ int add_d_i(va_list l, char *buffer, int i)
 	return (n < 0 ? numlen(n) + 1 : numlen(n));
 }
 
-int div_by_two_times(int n, int c)
+int count_div_by(int n, int div, int c)
 {
 
 	if (n !=  0)
-	{
-		printf("n : %d\n", n);
-		return (div_by_two_times(n / 2, c + 1));
-	}
+		return (count_div_by(n / div, div, c + 1));
 	return (c);
 }
 
 int add_binary(va_list l, char *buffer, int i)
 {
-	unsigned int num = va_arg(l, int);
-	int j = div_by_two_times(num, 0) - 1;
+	unsigned int num = va_arg(l, unsigned int);
+	int cc = 0;
+	int j = count_div_by(num, 2, 0) - 1;
 
 	while (j >= 0)
 	{
 		if (num % 2 == 0)
 		{
-			printf("in \n");
-			printf("i %d, j %d\n", i, j);
 			buffer[i + j] = '0';
-			printf("%c\n",  buffer[i + j]);
 		}
 		else
 		{
@@ -62,7 +57,8 @@ int add_binary(va_list l, char *buffer, int i)
 		}
 		num /= 2;
 		j--;
+		cc++;
 	}
 
-	return (div_by_two_times(num, 0));
+	return (cc);
 }
