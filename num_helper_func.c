@@ -26,8 +26,8 @@ int numlen(int n)
 
 int _pow(int n, int  exp)
 {
-        double total = 1;
-        double i;
+        int total = 1;
+        int i;
 
         for (i = 0; i < exp; i++)
                 total *= n;
