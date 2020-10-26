@@ -13,8 +13,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i, j;
-	int cc;
+	int i, j, cc;
 	char buff[1024] = {0};
 	va_list list;
 	fs_t s_to_p[] = {
@@ -24,6 +23,7 @@ int _printf(const char *format, ...)
 		{'d', add_d_i},
 		{'%', add_percent},
 		{'b', add_binary},
+		{'o', add_oct},
 		{'\0', NULL}
 	};
 	if (!format || (format[0] == '%' && format[1] == '\0'))

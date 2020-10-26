@@ -47,6 +47,31 @@ int count_div_by(int n, int div, int c)
 	return (c);
 }
 
+int add_oct(va_list l, char *buffer, int i)
+{
+        int num = va_arg(l, int);
+        int cc;
+        int j;
+
+/*	if (num == 0)
+        {
+                buffer[i] = '0';
+                return (1);
+        }*/
+        cc = 0;
+        j = count_div_by(num, 8, 0);
+        while (j > 0)
+        {
+		buffer[i + j] = num % 8;
+		printf("the buff : %d\n", buffer[i + j]);
+		printf("the num : %d\n", num);
+		num /= 8;
+                cc++;
+                j--;
+        }
+        return (cc);
+}
+
 /**
  * add_binary - Convert integer into a binary and add it to the buffer
  * @l: the argument list

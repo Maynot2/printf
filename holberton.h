@@ -28,4 +28,5 @@ int add_s(va_list, char *, int);
 int add_d_i(va_list, char *, int);
 int add_percent(va_list, char *, int);
 int add_binary(va_list, char *, int);
+int add_oct(va_list, char *, int);
 #endif
