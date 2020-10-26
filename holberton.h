@@ -24,5 +24,5 @@ int _printf(const char *, ...);
 int add_c(va_list, char *, int);
 int add_s(va_list, char *, int);
 int add_d_i(va_list, char *, int);
-
+int add_percent(va_list, char *, int);
 #endif
