@@ -31,13 +31,30 @@ int add_d_i(va_list l, char *buffer, int i)
 	return (n < 0 ? numlen(n) + 1 : numlen(n));
 }
 
+/**
+ * count_div_by - Count number of times, n is divided by a given number div
+ * @n: the number to be divided as an integer
+ * @div: the divisor
+ * @c: the count
+ *
+ * Return: the count
+ */
+
 int count_div_by(int n, int div, int c)
 {
-
 	if (n !=  0)
 		return (count_div_by(n / div, div, c + 1));
 	return (c);
 }
+
+/**
+ * add_binary - Convert integer into a binary and add it to the buffer
+ * @l: the argument list
+ * @buffer: the buffer
+ * @i: the index
+ *
+ * Return: the number of added characters
+ */
 
 int add_binary(va_list l, char *buffer, int i)
 {
