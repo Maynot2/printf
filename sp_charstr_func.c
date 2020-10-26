@@ -35,7 +35,7 @@ int add_s(va_list l, char *buffer, int i)
 	int j;
 
 	if (!str)
-		str = "(nil)";
+		str = "(null)";
 
 	j = 0;
 	while (str[j])
