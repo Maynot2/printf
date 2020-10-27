@@ -114,7 +114,7 @@ int add_hex_low(va_list l, char *buffer, int i)
 int add_hex_up(va_list l, char *buffer, int i)
 {
 	unsigned int num = va_arg(l, unsigned int);
-	char *converted = convert_to_base(num, 16, 0);
+	char *converted = convert_to_base(num, 16, 1);
 	int j = 0;
 
 	while (converted[j])
