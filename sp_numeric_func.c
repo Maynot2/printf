@@ -49,27 +49,17 @@ int count_div_by(int n, int div, int c)
 
 int add_oct(va_list l, char *buffer, int i)
 {
-        int num = va_arg(l, int);
-        int cc;
-        int j;
+	int num = va_arg(l, int);
+	char *converted = convert_to_base(num, 8, 0);
+	int j = 0;
 
-/*	if (num == 0)
-        {
-                buffer[i] = '0';
-                return (1);
-        }*/
-        cc = 0;
-        j = count_div_by(num, 8, 0);
-        while (j > 0)
-        {
-		buffer[i + j] = num % 8;
-		printf("the buff : %d\n", buffer[i + j]);
-		printf("the num : %d\n", num);
-		num /= 8;
-                cc++;
-                j--;
-        }
-        return (cc);
+	while (converted[j])
+	{
+		buffer[i + j] = converted[j];
+		j++;
+	}
+
+	return (j);
 }
 
 /**
