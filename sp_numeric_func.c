@@ -31,21 +31,15 @@ int add_d_i(va_list l, char *buffer, int i)
 	return (n < 0 ? numlen(n) + 1 : numlen(n));
 }
 
-/**
- * count_div_by - Count number of times, n is divided by a given number div
- * @n: the number to be divided as an integer
- * @div: the divisor
- * @c: the count
- *
- * Return: the count
- */
 
-int count_div_by(int n, int div, int c)
-{
-	if (n !=  0)
-		return (count_div_by(n / div, div, c + 1));
-	return (c);
-}
+/**
+ * add_oct - Convert integer into an octal
+ * @l: the argument list
+ * @buffer: the buffer
+ * @i: the index
+ *
+ * Return: the number of caracter
+ */
 
 int add_oct(va_list l, char *buffer, int i)
 {
@@ -74,29 +68,59 @@ int add_oct(va_list l, char *buffer, int i)
 int add_binary(va_list l, char *buffer, int i)
 {
 	unsigned int num = va_arg(l, unsigned int);
-	int cc;
-	int j;
+	char *converted = convert_to_base(num, 2, 0);
+	int j = 0;
 
-	if (num == 0)
+	while (converted[j])
 	{
-		buffer[i] = '0';
-		return (1);
+		buffer[i + j] = converted[j];
+		j++;
 	}
-	cc = 0;
-	j = count_div_by(num, 2, 0) - 1;
-	while (j >= 0)
+	return (j);
+}
+
+/**
+ * add_hex_low - Convert integer into a lower hexadecimal
+ * @l: the argument list
+ * @buffer: the buffer
+ * @i: the index
+ *
+ * Return: the number of added characters.
+ */
+
+int add_hex_low(va_list l, char *buffer, int i)
+{
+	unsigned int num = va_arg(l, unsigned int);
+	char *converted = convert_to_base(num, 16, 0);
+	int j = 0;
+
+	while (converted[j])
 	{
-		if (num % 2 == 0)
-		{
-			buffer[i + j] = '0';
-		}
-		else
-		{
-			buffer[i + j] = '1';
-		}
-		num /= 2;
-		cc++;
-		j--;
+		buffer[i + j] = converted[j];
+		j++;
 	}
-	return (cc);
+	return (j);
+}
+
+/**
+ * add_hex_up - convert integer into a upper hexadecimal
+ * @l: the argument list
+ * @buffer: the buffer
+ * @i: the index
+ *
+ * Return: the number of added characters.
+ */
+
+int add_hex_up(va_list l, char *buffer, int i)
+{
+	unsigned int num = va_arg(l, unsigned int);
+	char *converted = convert_to_base(num, 16, 0);
+	int j = 0;
+
+	while (converted[j])
+	{
+		buffer[i + j] = converted[j];
+		j++;
+	}
+	return (j);
 }
