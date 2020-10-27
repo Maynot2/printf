@@ -12,14 +12,12 @@
 int add_d_i(va_list l, char *buffer, int i)
 {
 	int n = va_arg(l, int);
-	int cc = -1;
 	unsigned int num = n;
 	int j;
 
 	if (n < 0)
 	{
 		buffer[i] = ('-');
-		cc++;
 		num = -n;
 		i++;
 	}
@@ -27,11 +25,10 @@ int add_d_i(va_list l, char *buffer, int i)
 	for (j = 0; j < numlen(n); j++)
 	{
 		buffer[i + j] = (num / _pow(10, numlen(num) - 1)) + '0';
-		cc++;
 		num -= (num / _pow(10, numlen(num) - 1)) * _pow(10, numlen(num) - 1);
 	}
 
-	return (cc);
+	return (n < 0 ? numlen(n) + 1 : numlen(n));
 }
 
 
