@@ -47,10 +47,11 @@ int add_s(va_list l, char *buffer, int i)
 }
 /**
  * add_percent - Add a percent
+ * @l: the argument list
+ * @buffer: the buffer
+ * @i: the index
  *
- *
- *
- *
+ * Return: 1.
  */
 
 int add_percent(va_list l, char *buffer, int i)
