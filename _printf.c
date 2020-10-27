@@ -75,5 +75,5 @@ int _printf(const char *format, ...)
 	}
 	va_end(list);
 	write(1, &buff, cc);
-	return (cc - 1);
+	return (cc);
 }
