@@ -48,7 +48,7 @@ int (*get_format_func(char s))(va_list, char *, int)
 
 int _printf(const char *format, ...)
 {
-	int i, cc;
+	int i, cc, ccc;
 	char buff[1024] = {0};
 	va_list list;
 
@@ -75,6 +75,6 @@ int _printf(const char *format, ...)
 	}
 	va_end(list);
 	write(1, &buff, cc);
-	cc--;
-	return (cc);
+	ccc = cc - 1;
+	return (ccc);
 }
