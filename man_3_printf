@@ -41,7 +41,7 @@ _printf("Length:[%d, %i]\n", 28, 28);
 .SH EXIT VALUES
 Return the numbers of characters printed or -1 if NULL
 .SH BUGS
-Didn't found yet
+The return value is 1 more than the real number of characters
 .SH AUTHOR
 Aurelie Cedia & Paul Manot
 .SH SEE ALSO
