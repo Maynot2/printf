@@ -31,7 +31,7 @@ int add_d_i(va_list l, char *buffer, int i)
 		num -= (num / _pow(10, numlen(num) - 1)) * _pow(10, numlen(num) - 1);
 	}
 
-	return (cc);
+	return (cc - 1);
 }
 
 
