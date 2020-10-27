@@ -1,6 +1,13 @@
 #include "holberton.h"
 #include <unistd.h>
 
+/**
+ * get_format_func - find the right format and apply the function
+ * @s: the string
+ *
+ * Return: the function to the format
+ */
+
 int (*get_format_func(char s))(va_list, char *, int)
 {
 	int i;
@@ -13,6 +20,8 @@ int (*get_format_func(char s))(va_list, char *, int)
 		{'%', add_percent},
 		{'b', add_binary},
 		{'o', add_oct},
+		{'x', add_hex_low},
+		{'X', add_hex_up},
 		{'\0', NULL}
 	};
 
