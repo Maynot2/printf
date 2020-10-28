@@ -18,8 +18,8 @@ char *convert_to_base(long int num, int base, int maj)
 
 	char *convertion_ptr;
 
-	len = numlen(num, base) + 1;
-	convertion_ptr = malloc(len * sizeof(char));
+	len = numlen(num, base);
+	convertion_ptr = malloc((len + 1) * sizeof(char));
 	if (!convertion_ptr)
 		return (NULL);
 

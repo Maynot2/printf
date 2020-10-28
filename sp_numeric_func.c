@@ -31,7 +31,7 @@ int add_d_i(va_list l, char *buffer, int i)
 		buffer[i + j] = converted[j];
 		j++;
 	}
-
+	free(converted);
 	return ((num < 0) ? (j + 1) : j);
 }
 
