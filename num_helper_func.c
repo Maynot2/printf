@@ -14,24 +14,27 @@ char *convert_to_base(long int num, int base, int maj)
 {
 	char encodeup[] = "0123456789ABCDEF";
 	char encodelow[] = "0123456789abcdef";
+	int len;
 
 	char *convertion_ptr;
 
-	convertion_ptr = malloc((numlen(num) + 1) * sizeof(char));
+	len = numlen(num, base) + 1;
+	convertion_ptr = malloc(len * sizeof(char));
 	if (!convertion_ptr)
 		return (NULL);
 
-	*convertion_ptr = '\0';
+	*(convertion_ptr + len) = '\0';
+	convertion_ptr += len;
 
 	do	{
 		if (maj)
 		{
-			*--convertion_ptr = encodeup[num % base];
+			*(--convertion_ptr) = encodeup[num % base];
 			num /= base;
 		}
 		else
 		{
-			*--convertion_ptr = encodelow[num % base];
+			*(--convertion_ptr) = encodelow[num % base];
 			num /= base;
 		}
 	} while (num != 0);
@@ -46,11 +49,11 @@ char *convert_to_base(long int num, int base, int maj)
  *
  */
 
-int numlen(int n)
+int numlen(int n, int base)
 {
-	if (n / 10 == 0)
+	if (n / base == 0)
 		return (1);
-	return (1 + numlen(n / 10));
+	return (1 + numlen(n / base, base));
 }
 
 /**
