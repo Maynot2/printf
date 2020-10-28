@@ -11,24 +11,28 @@
 
 int add_d_i(va_list l, char *buffer, int i)
 {
-	int n = va_arg(l, int);
-	unsigned int num = n;
-	int j;
 
-	if (n < 0)
+	int num = va_arg(l, int);
+	unsigned int numcp = num;
+	char *converted;
+	int j = 0;
+
+	if (num < 0)
 	{
 		buffer[i] = ('-');
-		num = -n;
+		numcp = -num;
 		i++;
 	}
 
-	for (j = 0; j < numlen(n); j++)
+	converted = convert_to_base(numcp, 10, 0);
+
+	while (converted[j])
 	{
-		buffer[i + j] = (num / _pow(10, numlen(num) - 1)) + '0';
-		num -= (num / _pow(10, numlen(num) - 1)) * _pow(10, numlen(num) - 1);
+		buffer[i + j] = converted[j];
+		j++;
 	}
 
-	return (n < 0 ? numlen(n) + 1 : numlen(n));
+	return ((num < 0) ? (j + 1) : j);
 }
 
 

@@ -27,9 +27,10 @@ int add_c(va_list, char *, int);
 int add_s(va_list, char *, int);
 int add_d_i(va_list, char *, int);
 int add_percent(va_list, char *, int);
-char *convert_to_base(int, int, int);
+char *convert_to_base(long int, int, int);
 int add_binary(va_list, char *, int);
 int add_oct(va_list, char *, int);
 int add_hex_low(va_list, char *, int);
 int add_hex_up(va_list, char *, int);
+
 #endif

@@ -10,7 +10,7 @@
   *
   */
 
-char *convert_to_base(int num, int base, int maj)
+char *convert_to_base(long int num, int base, int maj)
 {
 	char encodeup[] = "0123456789ABCDEF";
 	char encodelow[] = "0123456789abcdef";
