@@ -55,24 +55,3 @@ int numlen(int n, int base)
 		return (1);
 	return (1 + numlen(n / base, base));
 }
-
-/**
- * _pow - Computes the power of a number n to exp.
- * @n: A number as an integer.
- * @exp: The exponential as an integer.
- *
- * Return: The power of a number as an integer.
- *
- *
- */
-
-int _pow(int n, int  exp)
-{
-	int total = 1;
-	int i;
-
-	for (i = 0; i < exp; i++)
-		total *= n;
-
-	return (total);
-}
