@@ -63,8 +63,17 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			i++;
-			cc += get_format_func(format[i])(list, buff, cc);
+			if (get_format_func(format[i + 1]))
+			{
+				i++;
+				cc += get_format_func(format[i])(list, buff, cc);
+			}
+			else
+			{
+				buff[cc] = format[i];
+				cc++;
+			}
+
 		}
 		else
 		{
