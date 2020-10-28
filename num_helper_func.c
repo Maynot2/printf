@@ -45,6 +45,7 @@ char *convert_to_base(long int num, int base, int maj)
 /**
  * numlen - Gives the number of digits in a number.
  * @n: A number as an integer.
+ * @base: The base as an integer.
  * Return: The number of digit as an integer.
  *
  */
